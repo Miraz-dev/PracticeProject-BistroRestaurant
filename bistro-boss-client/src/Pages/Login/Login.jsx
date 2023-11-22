@@ -4,6 +4,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { AuthContext } from '../../Provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 
 const Login = () => {
@@ -108,6 +109,7 @@ const Login = () => {
                         </div>
                     </form>
                     <p className='text-center mb-4'><small>New here? <Link to={'/signup'} className='text-blue-400 hover:text-blue-600'>Sign Up</Link></small></p>
+                    <SocialLogin />
                 </div>
             </div>
         </div>

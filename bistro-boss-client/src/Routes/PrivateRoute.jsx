@@ -1,17 +1,18 @@
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
-import { AuthContext } from '../Provider/AuthProvider';
+
 import { Navigate, useLocation } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
 
 const PrivateRoute = ({children}) => {
-    const {user, loading} = useContext(AuthContext);
+    const {user, loading} = useAuth();
     const location = useLocation();
 
     if(loading){
-        return <div className="flex justify-center"><span className="loading loading-spinner loading-lg"></span></div>
+        // console.log("Loading...");
+        return <span className="loading loading-spinner loading-lg"></span>
     }
 
-    if(user?.email){
+    if(user){
         return children;    
     }
 
